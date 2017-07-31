@@ -1,0 +1,87 @@
+---
+title: "Descriptive Statistics on IPIP-NEO-120 Johnson Dataset"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment=NA, fig.width=15, fig.height=6)
+
+library("psych")
+
+source("preparedata.R")
+```
+
+## Big Five Dimensions and Facets (USA, female, 18 to 35 years)
+
+### Big Five Dimensions
+
+````{r}
+describe(data.usa.female.18to35[, c("NEUROTICISM","EXTRAVERSION", "OPENESS", "AGREEABLENESS", "CONSCIENTIOUSNESS")])
+
+````
+
+### Facets
+
+#### Neuroticism facets
+
+````{r}
+describe(data.usa.female.18to35[, c("ANXIETY", "ANGER", "DEPRESSION", "SELFCONSCIOUSNESS", "IMMODERATION", "VULNERABILITY")])
+````
+
+#### Extraversion facets
+
+````{r}
+describe(data.usa.female.18to35[, c("FRIENDLINESS", "GREGARIOUSNESS", "ASSERTIVENESS", "ACTIVITYLEVEL", "EXCITEMENTSEEKING", "CHEERFULNESS")])
+````
+
+#### Openness to experience facets
+
+````{r}
+describe(data.usa.female.18to35[, c("IMAGINATION", "ARTISTICINTERESTS", "EMOTIONALITY", "ADVENTUROUSNESS", "INTELLECT", "LIBERALISM")])
+````
+
+#### Agreeableness facets
+
+````{r}
+describe(data.usa.female.18to35[, c("TRUST", "MORALITY", "ALTRUISM", "COOPERATION", "MODESTY", "SYMPATHY")])
+````
+
+#### Conscientiousness facets
+
+````{r}
+describe(data.usa.female.18to35[, c("SELFEFFICACY", "ORDERLINESS", "DUTIFULNESS", "ACHIEVEMENTSTRIVING", "SELFDISCIPLINE", "CAUTIONESS")])
+````
+
+### Big Five and Facets Boxplots
+
+````{r}
+boxplot(data.usa.female.18to35[, c("NEUROTICISM","EXTRAVERSION", "OPENESS", "AGREEABLENESS", "CONSCIENTIOUSNESS")],
+          main = "Big Five Dimensions",
+          ylab = "Raw scale values"
+        )
+
+boxplot(data.usa.female.18to35[, c("ANXIETY", "ANGER", "DEPRESSION", "SELFCONSCIOUSNESS", "IMMODERATION", "VULNERABILITY")],
+          main = "Neuroticism Facets",
+          ylab = "Raw scale values"
+        )
+
+boxplot(data.usa.female.18to35[, c("FRIENDLINESS", "GREGARIOUSNESS", "ASSERTIVENESS", "ACTIVITYLEVEL", "EXCITEMENTSEEKING", "CHEERFULNESS")],
+          main = "Extraversion Facets",
+          ylab = "Raw scale values"
+        )
+
+boxplot(data.usa.female.18to35[, c("IMAGINATION", "ARTISTICINTERESTS", "EMOTIONALITY", "ADVENTUROUSNESS", "INTELLECT", "LIBERALISM")],
+          main = "Openness to Experience Facets",
+          ylab = "Raw scale values"
+        )
+
+boxplot(data.usa.female.18to35[, c("TRUST", "MORALITY", "ALTRUISM", "COOPERATION", "MODESTY", "SYMPATHY")],
+          main = "Agreeableness Facets",
+          ylab = "Raw scale values"
+        )
+
+boxplot(data.usa.female.18to35[, c("SELFEFFICACY", "ORDERLINESS", "DUTIFULNESS", "ACHIEVEMENTSTRIVING", "SELFDISCIPLINE", "CAUTIONESS")],
+          main = "Conscientiousness Facets",
+          ylab = "Raw scale values"
+        )
+````
